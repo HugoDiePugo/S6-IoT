@@ -62,3 +62,11 @@ packet
 +8: "Smoke max change"
 ```
 
+```mermaid
+---
+title: "Reset alarm"
+---
+packet
+0-3: "Version"
+4-7: "Command (18)"
+```
