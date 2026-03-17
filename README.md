@@ -1,4 +1,5 @@
 Current version: 1
+
 Commands:
 - Health: 0
 - Alarm: 1
@@ -13,5 +14,7 @@ title: "Generic SFFA Packet"
 packet
 0-3: "Version"
 4-7: "Command"
-8-103: "Data"
+8-103: "Data (variable length)"
 ```
+
+
