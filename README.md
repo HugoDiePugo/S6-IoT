@@ -43,3 +43,22 @@ packet
 +8: "Humidity"
 +8: "Smoke"
 ```
+
+```mermaid
+---
+title: "Set Threshold"
+---
+packet
+0-3: "Version"
+4-7: "Command (16)"
++8: "Copy value mask"
++8: "Battery threshhold"
++8: "Battery max change"
++8: "Temperature threshhold"
++8: "Temperature max change"
++8: "Humidity threshhold"
++8: "Humidity max change"
++8: "Smoke threshhold"
++8: "Smoke max change"
+```
+
