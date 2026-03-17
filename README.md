@@ -14,7 +14,32 @@ title: "Generic SFFA Packet"
 packet
 0-3: "Version"
 4-7: "Command"
-8-103: "Data (variable length)"
+8-31: "Data (variable length)"
 ```
 
+```mermaid
+---
+title: "Health Packet"
+---
+packet
+0-3: "Version"
+4-7: "Command (0)"
++8: "Battery"
++8: "Temperature"
++8: "Humidity"
++8: "Smoke"
+```
 
+```mermaid
+---
+title: "Alarm Packet"
+---
+packet
+0-3: "Version"
+4-7: "Command (1)"
++8: "Alarm mask"
++8: "Battery"
++8: "Temperature"
++8: "Humidity"
++8: "Smoke"
+```
