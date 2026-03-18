@@ -2,6 +2,7 @@
 #define FORMATTER_H
 
 #include "measurement.hpp"
+#include "scheduler.hpp"
 #include <TheThingsNetwork.h>
 #include <stdint.h>
 #include <assert.h>
@@ -24,21 +25,12 @@ private:
     uint8_t amountOfMeasurements;
     TheThingsNetwork* ttn;
     uint8_t alarmsMask;
-
-    uint32_t timeMinutes; //Minutes
-    uint32_t lastHealthUpdate;
-    uint32_t lastSample;
-    uint32_t lastAlarm;
-
-    uint16_t wakePeriod;
-    uint16_t healthUpdatePeriod; //Minutes
-    uint16_t samplePeriod; //Mintues
-    uint16_t alarmPeriods[4]; //Minutes
+    Scheduler* scheduler;
 
 public:
     // Constructor
-    Formater(Measurement* measurements, uint8_t amountOfMeasurements, TheThingsNetwork* ttn)
-        : measurements{measurements}, amountOfMeasurements{amountOfMeasurements}, ttn{ttn} {
+    Formater(Measurement* measurements, uint8_t amountOfMeasurements, TheThingsNetwork* ttn, Scheduler* scheduler)
+        : measurements{measurements}, amountOfMeasurements{amountOfMeasurements}, ttn{ttn}, scheduler{scheduler} {
             assert(amountOfMeasurements <= 4);
         }
 
