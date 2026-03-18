@@ -1,0 +1,2177 @@
+[
+    {
+        "id": "b9d029b2b355aff5",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "ef575e93bf69b363",
+        "type": "mqtt in",
+        "z": "b9d029b2b355aff5",
+        "name": "",
+        "topic": "v3/iot-class-han-hasstt/devices/forest-sensor/up",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "732c62bec9786f14",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 560,
+        "y": 580,
+        "wires": [
+            [
+                "f7f122e3bc1449a8"
+            ]
+        ]
+    },
+    {
+        "id": "838e2a07034e40bf",
+        "type": "mqtt in",
+        "z": "b9d029b2b355aff5",
+        "name": "",
+        "topic": "v3/thingsuno4huls6@ttn/devices/eui-0004a30b001ea0eb/up",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "84a6706d826fbfc2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 520,
+        "y": 540,
+        "wires": [
+            [
+                "f7f122e3bc1449a8",
+                "a208222ec38b1229"
+            ]
+        ]
+    },
+    {
+        "id": "f3147b6ed3aa3f1e",
+        "type": "mysql",
+        "z": "b9d029b2b355aff5",
+        "mydb": "7a0a10afad16721c",
+        "name": "",
+        "x": 1570,
+        "y": 540,
+        "wires": [
+            [
+                "5f3a5f3bb7808b3f",
+                "5ffbf072dd7cfc7c",
+                "2348f37410e3462e",
+                "c98c5b8e232aec2e",
+                "94052b09974302cb"
+            ]
+        ]
+    },
+    {
+        "id": "0b9a11b85ead9d87",
+        "type": "ui-button",
+        "z": "b9d029b2b355aff5",
+        "group": "74c4806cc843208a",
+        "name": "Send",
+        "label": "Send",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 870,
+        "y": 840,
+        "wires": [
+            [
+                "2f6c36e59f8f664a",
+                "fcb741169bd041fe",
+                "7be28e72dabb5aaa"
+            ]
+        ]
+    },
+    {
+        "id": "003de3500e7fd94b",
+        "type": "ui-number-input",
+        "z": "b9d029b2b355aff5",
+        "group": "74c4806cc843208a",
+        "name": "Maximal CO2 level",
+        "label": "Threshold maximal CO2 level (ppm)",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "800",
+        "max": "2000",
+        "step": "10",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 910,
+        "y": 1240,
+        "wires": [
+            [
+                "351d20298a0c1b82"
+            ]
+        ]
+    },
+    {
+        "id": "6578b1c9fef0481b",
+        "type": "ui-number-input",
+        "z": "b9d029b2b355aff5",
+        "group": "74c4806cc843208a",
+        "name": "Minimal humidity level",
+        "label": "Threshold minimal humidity level (%)",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "100",
+        "step": 1,
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 920,
+        "y": 1200,
+        "wires": [
+            [
+                "7f0d4bc8adb60f54"
+            ]
+        ]
+    },
+    {
+        "id": "d32df2a9469a69e8",
+        "type": "ui-number-input",
+        "z": "b9d029b2b355aff5",
+        "group": "74c4806cc843208a",
+        "name": "Maximal temperature level",
+        "label": "Threshold maximal temperature level (°C)",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "30",
+        "max": "100",
+        "step": 1,
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 940,
+        "y": 1160,
+        "wires": [
+            [
+                "51857d7ca8deba9d"
+            ]
+        ]
+    },
+    {
+        "id": "1b8e27fbda386b92",
+        "type": "ui-number-input",
+        "z": "b9d029b2b355aff5",
+        "group": "74c4806cc843208a",
+        "name": "Minimal battery level",
+        "label": "Threshold minimal battery level (V)",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "4.2",
+        "step": "0.1",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 920,
+        "y": 1120,
+        "wires": [
+            [
+                "5e6b229924130a58"
+            ]
+        ]
+    },
+    {
+        "id": "de435709538b74bf",
+        "type": "ui-button",
+        "z": "b9d029b2b355aff5",
+        "group": "f5c13676a58d7dee",
+        "name": "Reset Alarm",
+        "label": "Reset Alarm",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 890,
+        "y": 800,
+        "wires": [
+            [
+                "8ce0176390aa0d07",
+                "7be28e72dabb5aaa"
+            ]
+        ]
+    },
+    {
+        "id": "604978386c565366",
+        "type": "comment",
+        "z": "b9d029b2b355aff5",
+        "name": "Set Values and store in global variables",
+        "info": "",
+        "x": 970,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "a56969acf4ee1675",
+        "type": "comment",
+        "z": "b9d029b2b355aff5",
+        "name": "Show last Values",
+        "info": "",
+        "x": 1940,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "5ffbf072dd7cfc7c",
+        "type": "ui-gauge",
+        "z": "b9d029b2b355aff5",
+        "name": "Battery",
+        "group": "46942c2f9624ef30",
+        "order": 6,
+        "value": "payload[0].bat",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Battery Health",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "Volts",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "2.5",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "3.2",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "3.8",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "2.5",
+        "max": "4.2",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 1920,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2348f37410e3462e",
+        "type": "ui-gauge",
+        "z": "b9d029b2b355aff5",
+        "name": "Temperature",
+        "group": "46942c2f9624ef30",
+        "order": 4,
+        "value": "payload[0].temp",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Temperature",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "Celsius",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "50",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "70",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 1930,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c98c5b8e232aec2e",
+        "type": "ui-gauge",
+        "z": "b9d029b2b355aff5",
+        "name": "Humidity",
+        "group": "46942c2f9624ef30",
+        "order": 3,
+        "value": "payload[0].hum",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Humidity",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "%",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "40",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "60",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 1920,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "94052b09974302cb",
+        "type": "ui-gauge",
+        "z": "b9d029b2b355aff5",
+        "name": "CO2",
+        "group": "46942c2f9624ef30",
+        "order": 5,
+        "value": "payload[0].co2",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "CO2",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "No",
+                "textType": "str"
+            },
+            {
+                "from": "800",
+                "color": "#ffc800",
+                "text": "Yes",
+                "textType": "str"
+            },
+            {
+                "from": "1000",
+                "color": "#ea5353",
+                "text": "Yes",
+                "textType": "str"
+            }
+        ],
+        "min": 0,
+        "max": "1400",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 1910,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ed100680dcd4ed40",
+        "type": "ui-gauge",
+        "z": "b9d029b2b355aff5",
+        "name": "Battery trigger",
+        "group": "46942c2f9624ef30",
+        "order": 1,
+        "value": "payload.battery",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Battery triggered?",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "No",
+                "textType": "str"
+            },
+            {
+                "from": "0.5",
+                "color": "#ea5353",
+                "text": "Yes",
+                "textType": "str"
+            }
+        ],
+        "min": 0,
+        "max": "1",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 1940,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "070392fced4375f8",
+        "type": "ui-gauge",
+        "z": "b9d029b2b355aff5",
+        "name": "Alarm",
+        "group": "46942c2f9624ef30",
+        "order": 2,
+        "value": "payload.alarm",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Alarm?",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "No",
+                "textType": "str"
+            },
+            {
+                "from": "0.5",
+                "color": "#ea5353",
+                "text": "Yes",
+                "textType": "str"
+            }
+        ],
+        "min": 0,
+        "max": "1",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 1910,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "adfd11ae583d522d",
+        "type": "trigger",
+        "z": "b9d029b2b355aff5",
+        "name": "",
+        "op1": "1",
+        "op2": "0",
+        "op1type": "val",
+        "op2type": "val",
+        "duration": "250",
+        "extend": "false",
+        "overrideDelay": "false",
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 1260,
+        "y": 540,
+        "wires": [
+            [
+                "3c365239a1ca90da",
+                "7be28e72dabb5aaa"
+            ]
+        ]
+    },
+    {
+        "id": "3c365239a1ca90da",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 3",
+        "func": "\nmsg.topic = \"Select * from data ORDER BY `id` DESC LIMIT 1\"\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1420,
+        "y": 540,
+        "wires": [
+            [
+                "f3147b6ed3aa3f1e"
+            ]
+        ]
+    },
+    {
+        "id": "6f7ca5939eeae2fd",
+        "type": "mysql",
+        "z": "b9d029b2b355aff5",
+        "mydb": "7a0a10afad16721c",
+        "name": "",
+        "x": 1010,
+        "y": 540,
+        "wires": [
+            [
+                "adfd11ae583d522d"
+            ]
+        ]
+    },
+    {
+        "id": "f7f122e3bc1449a8",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 5",
+        "func": "// msg.payload = msg.payload.uplink_message.decoded_payload\n\nlet dev = msg.payload?.end_device_ids?.dev_eui ?? 0;\nlet time = msg.payload?.received_at ?? 0;\nlet bat = msg.payload?.uplink_message?.decoded_payload?.Measurements?.[0]/10 ?? 0;\nlet temp = msg.payload?.uplink_message?.decoded_payload?.Measurements?.[1] ?? 0;\nlet hum = msg.payload?.uplink_message?.decoded_payload?.Measurements?.[2] ?? 0;\nlet co2 = msg.payload?.uplink_message?.decoded_payload?.Measurements?.[3]*10 ?? 0;\nlet alarm = msg.payload?.uplink_message?.decoded_payload?.Alarm ?? 0;\nvar payload = \"INSERT INTO `data` (`dev`, `bat`, `temp`, `hum`, `co2`,`alarm`) VALUES (\\\"\" + dev + \"\\\",\" + bat + \",\" + temp + \",\" + hum + \",\" + co2 + \",\" + alarm +\");\"\n\nmsg.topic = payload;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 540,
+        "wires": [
+            [
+                "6f7ca5939eeae2fd"
+            ]
+        ]
+    },
+    {
+        "id": "d5fbb79701ef44d6",
+        "type": "comment",
+        "z": "b9d029b2b355aff5",
+        "name": "Receive Values",
+        "info": "",
+        "x": 900,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "5f3a5f3bb7808b3f",
+        "type": "ui-text",
+        "z": "b9d029b2b355aff5",
+        "group": "46942c2f9624ef30",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "Timestamp",
+        "label": "Last Received Data",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload[0].timestamp",
+        "valueType": "msg",
+        "x": 1930,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "38ba902910a32c52",
+        "type": "inject",
+        "z": "b9d029b2b355aff5",
+        "name": "Startup",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 1020,
+        "y": 600,
+        "wires": [
+            [
+                "adfd11ae583d522d"
+            ]
+        ]
+    },
+    {
+        "id": "5e6b229924130a58",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 4",
+        "func": "global.set(\"minBat\", msg.payload);",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1180,
+        "y": 1120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "51857d7ca8deba9d",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 7",
+        "func": "global.set(\"maxTemp\", msg.payload);",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1180,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7f0d4bc8adb60f54",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 8",
+        "func": "global.set(\"minHum\", msg.payload);",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1180,
+        "y": 1200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "351d20298a0c1b82",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 9",
+        "func": "global.set(\"maxCO2\", msg.payload);",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1180,
+        "y": 1240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2f6c36e59f8f664a",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 6",
+        "func": "let minBat = global.get(\"minBat\");\nlet batMaxChange = global.get(\"changeBat\");\nlet maxTemp = global.get(\"maxTemp\");\nlet tempMaxChange = global.get(\"changeTemp\");\nlet minHum = global.get(\"minHum\");\nlet humMaxChange = global.get(\"changeHum\");\nlet maxCO2 = global.get(\"maxCO2\");\nlet co2MaxChange = global.get(\"changeCO2\");\n\nmsg.topic = \"INSERT INTO `thresholds` (`minBat`,`changeBat`,`maxTemp`,`changeTemp`,`minHum`,`changeHum`,`maxCO2`,`changeCO2`) VALUES (\" \n    + minBat + \",\" \n    + batMaxChange + \",\" \n    + maxTemp + \",\" \n    + tempMaxChange + \",\" \n    + minHum + \",\" \n    + humMaxChange + \",\" \n    + maxCO2 + \",\" \n    + co2MaxChange + \");\";\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1160,
+        "y": 880,
+        "wires": [
+            [
+                "94c754325e6eb5b7"
+            ]
+        ]
+    },
+    {
+        "id": "812128ec815a6157",
+        "type": "debug",
+        "z": "b9d029b2b355aff5",
+        "name": "Inserted information",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1540,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "94c754325e6eb5b7",
+        "type": "mysql",
+        "z": "b9d029b2b355aff5",
+        "mydb": "7a0a10afad16721c",
+        "name": "",
+        "x": 1370,
+        "y": 880,
+        "wires": [
+            [
+                "812128ec815a6157"
+            ]
+        ]
+    },
+    {
+        "id": "7fdd526b560ef018",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 10",
+        "func": "\nmsg.topic = \"Select * from thresholds ORDER BY `id` DESC LIMIT 1\"\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 1260,
+        "wires": [
+            [
+                "568004a59c7982b1"
+            ]
+        ]
+    },
+    {
+        "id": "dca6e4779c8bde3b",
+        "type": "inject",
+        "z": "b9d029b2b355aff5",
+        "name": "Startup",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 200,
+        "y": 1260,
+        "wires": [
+            [
+                "7fdd526b560ef018"
+            ]
+        ]
+    },
+    {
+        "id": "568004a59c7982b1",
+        "type": "mysql",
+        "z": "b9d029b2b355aff5",
+        "mydb": "7a0a10afad16721c",
+        "name": "",
+        "x": 490,
+        "y": 1260,
+        "wires": [
+            [
+                "67834683a6189725"
+            ]
+        ]
+    },
+    {
+        "id": "67834683a6189725",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 11",
+        "func": "return [\n    { payload: msg.payload[0].minBat },\n    { payload: msg.payload[0].maxTemp },\n    { payload: msg.payload[0].minHum },\n    { payload: msg.payload[0].maxCO2 },\n    { payload: msg.payload[0].changeBat },\n    { payload: msg.payload[0].changeTemp },\n    { payload: msg.payload[0].changeHum },\n    { payload: msg.payload[0].changeCO2 }\n];",
+        "outputs": 8,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 1260,
+        "wires": [
+            [
+                "1b8e27fbda386b92"
+            ],
+            [
+                "d32df2a9469a69e8"
+            ],
+            [
+                "6578b1c9fef0481b"
+            ],
+            [
+                "003de3500e7fd94b"
+            ],
+            [
+                "a9f7b14954edcc96"
+            ],
+            [
+                "df23e8d4697e36f9"
+            ],
+            [
+                "fc35e698ec541e49"
+            ],
+            [
+                "f6bc9eb6f6dbc017"
+            ]
+        ]
+    },
+    {
+        "id": "0d0cc9922b23604c",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 12",
+        "func": "msg.topic = `\nSELECT\n    (SELECT bat FROM data ORDER BY id DESC LIMIT 1) AS last_bat,\n    (SELECT minBat FROM thresholds ORDER BY id DESC LIMIT 1) AS last_minBat,\n\n    (SELECT temp FROM data ORDER BY id DESC LIMIT 1) AS last_temp,\n    (SELECT maxTemp FROM thresholds ORDER BY id DESC LIMIT 1) AS last_maxTemp,\n\n    (SELECT hum FROM data ORDER BY id DESC LIMIT 1) AS last_hum,\n    (SELECT minHum FROM thresholds ORDER BY id DESC LIMIT 1) AS last_minHum,\n\n    (SELECT co2 FROM data ORDER BY id DESC LIMIT 1) AS last_co2,\n    (SELECT maxCO2 FROM thresholds ORDER BY id DESC LIMIT 1) AS last_maxCO2\n`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1430,
+        "y": 620,
+        "wires": [
+            [
+                "59dbf3e7ef50f59f"
+            ]
+        ]
+    },
+    {
+        "id": "59dbf3e7ef50f59f",
+        "type": "mysql",
+        "z": "b9d029b2b355aff5",
+        "mydb": "7a0a10afad16721c",
+        "name": "",
+        "x": 1570,
+        "y": 620,
+        "wires": [
+            [
+                "be393a3120d0a29a"
+            ]
+        ]
+    },
+    {
+        "id": "7be28e72dabb5aaa",
+        "type": "delay",
+        "z": "b9d029b2b355aff5",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1270,
+        "y": 620,
+        "wires": [
+            [
+                "0d0cc9922b23604c"
+            ]
+        ]
+    },
+    {
+        "id": "be393a3120d0a29a",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 13",
+        "func": "let data = msg.payload[0];\n\n// Battery detection (your original logic)\nlet batdetection = 0;\nif (data.last_bat < data.last_minBat) {\n    batdetection = 1;\n}\n\n// Alarm detection (ANY condition fails)\nlet alarm = 0;\n\nif (\n    data.last_bat < data.last_minBat ||   // battery too low\n    data.last_temp > data.last_maxTemp || // temperature too high\n    data.last_hum < data.last_minHum ||   // humidity too low\n    data.last_co2 > data.last_maxCO2      // CO2 too high\n) {\n    alarm = 1;\n}\n\n// Return both\nmsg.payload = {\n    battery: batdetection,\n    alarm: alarm\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1710,
+        "y": 620,
+        "wires": [
+            [
+                "ed100680dcd4ed40",
+                "070392fced4375f8"
+            ]
+        ]
+    },
+    {
+        "id": "db6c68943570ddc6",
+        "type": "mqtt out",
+        "z": "b9d029b2b355aff5",
+        "name": "",
+        "topic": "v3/iot-class-han-hasstt/devices/forest-sensor/down/push",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "732c62bec9786f14",
+        "x": 1530,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "24bac168a1c79081",
+        "type": "mqtt out",
+        "z": "b9d029b2b355aff5",
+        "name": "",
+        "topic": "v3/thingsuno4huls6@ttn/devices/eui-0004a30b001ea0eb/down/push",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "84a6706d826fbfc2",
+        "x": 1570,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "fcb741169bd041fe",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 14",
+        "func": "let header = 0b00011000\nlet changemask = 0b11111111\nlet minBat = global.get(\"minBat\")*10;\nlet batMaxChange = global.get(\"changeBat\")*10;\nlet maxTemp = global.get(\"maxTemp\");\nlet tempMaxChange = global.get(\"changeTemp\");\nlet minHum = global.get(\"minHum\");\nlet humMaxChange = global.get(\"changeHum\");\nlet maxCO2 = global.get(\"maxCO2\")/10;\nlet co2MaxChange = global.get(\"changeCO2\")/10;\n\nlet bytes = [\n    header,\n    changemask,\n    minBat, \n    batMaxChange, \n    maxTemp, \n    tempMaxChange, \n    minHum,\n    humMaxChange,\n    maxCO2,\n    co2MaxChange\n    ];\n\nmsg.payload = {\n    downlinks: [{\n        f_port: 1,\n        frm_payload: Buffer.from(bytes).toString(\"base64\")\n    }]\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1170,
+        "y": 840,
+        "wires": [
+            [
+                "24bac168a1c79081",
+                "db6c68943570ddc6"
+            ]
+        ]
+    },
+    {
+        "id": "8ce0176390aa0d07",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 15",
+        "func": "let header = 0b00011010\n\nlet bytes = [\n    header];\n\nmsg.payload = {\n    downlinks: [{\n        f_port: 1,\n        frm_payload: Buffer.from(bytes).toString(\"base64\")\n    }]\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1170,
+        "y": 800,
+        "wires": [
+            [
+                "24bac168a1c79081",
+                "db6c68943570ddc6"
+            ]
+        ]
+    },
+    {
+        "id": "f4903aeb0ba3bf51",
+        "type": "comment",
+        "z": "b9d029b2b355aff5",
+        "name": "Get last threshold Values",
+        "info": "",
+        "x": 390,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "a208222ec38b1229",
+        "type": "debug",
+        "z": "b9d029b2b355aff5",
+        "name": "MQTT input",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 890,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "df23e8d4697e36f9",
+        "type": "ui-number-input",
+        "z": "b9d029b2b355aff5",
+        "group": "74c4806cc843208a",
+        "name": "Max change temperature level",
+        "label": "Max change temperature level (°C)",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "1",
+        "max": "100",
+        "step": "1",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 950,
+        "y": 1320,
+        "wires": [
+            [
+                "a758e6574d630230"
+            ]
+        ]
+    },
+    {
+        "id": "a9f7b14954edcc96",
+        "type": "ui-number-input",
+        "z": "b9d029b2b355aff5",
+        "group": "74c4806cc843208a",
+        "name": "Max change battery level",
+        "label": "Max change battery level (V)",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "1",
+        "max": "3",
+        "step": "0.1",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 930,
+        "y": 1280,
+        "wires": [
+            [
+                "651738613eeeb9f7"
+            ]
+        ]
+    },
+    {
+        "id": "6e509563b9a0d441",
+        "type": "ui-number-input",
+        "z": "b9d029b2b355aff5",
+        "group": "f5c13676a58d7dee",
+        "name": "Health update frequency Node",
+        "label": "Health update frequency Node (min)",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "1",
+        "max": "65535",
+        "step": 1,
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 950,
+        "y": 1460,
+        "wires": [
+            [
+                "7503e1232557c695"
+            ]
+        ]
+    },
+    {
+        "id": "59040472b0518190",
+        "type": "ui-number-input",
+        "z": "b9d029b2b355aff5",
+        "group": "f5c13676a58d7dee",
+        "name": "Sample period Node",
+        "label": "Sample period Node (min)",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "1",
+        "max": "65535",
+        "step": "1",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 920,
+        "y": 1500,
+        "wires": [
+            [
+                "b22fdd4cce085c42"
+            ]
+        ]
+    },
+    {
+        "id": "fc35e698ec541e49",
+        "type": "ui-number-input",
+        "z": "b9d029b2b355aff5",
+        "group": "74c4806cc843208a",
+        "name": "Max change humidity level",
+        "label": "Max change humidity level (%)",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "1",
+        "max": "100",
+        "step": 1,
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 940,
+        "y": 1360,
+        "wires": [
+            [
+                "a0a37fe3017907da"
+            ]
+        ]
+    },
+    {
+        "id": "f6bc9eb6f6dbc017",
+        "type": "ui-number-input",
+        "z": "b9d029b2b355aff5",
+        "group": "74c4806cc843208a",
+        "name": "Max change CO2 level",
+        "label": "Max change CO2 level (ppm)",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "10",
+        "max": "2000",
+        "step": "10",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 920,
+        "y": 1400,
+        "wires": [
+            [
+                "9f9b5f2c109ed16d"
+            ]
+        ]
+    },
+    {
+        "id": "e84d1bd289f3b21f",
+        "type": "ui-number-input",
+        "z": "b9d029b2b355aff5",
+        "group": "f5c13676a58d7dee",
+        "name": "Battery alarm update period",
+        "label": "Battery alarm update period (min)",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "1",
+        "max": "65535",
+        "step": 1,
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 940,
+        "y": 1540,
+        "wires": [
+            [
+                "10d76dd4648570d0"
+            ]
+        ]
+    },
+    {
+        "id": "39539dfb4cf5a82b",
+        "type": "ui-number-input",
+        "z": "b9d029b2b355aff5",
+        "group": "f5c13676a58d7dee",
+        "name": "Temperature alarm update periode",
+        "label": "Temperature alarm update periode (min)",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "65535",
+        "step": "1",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 960,
+        "y": 1580,
+        "wires": [
+            [
+                "d672c95aa3145b3f"
+            ]
+        ]
+    },
+    {
+        "id": "b36fed41a42dbbdf",
+        "type": "ui-number-input",
+        "z": "b9d029b2b355aff5",
+        "group": "f5c13676a58d7dee",
+        "name": "Humidity alarm update period",
+        "label": "Humidity alarm update period (min)",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "1",
+        "max": "65535",
+        "step": 1,
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 940,
+        "y": 1620,
+        "wires": [
+            [
+                "6c3c87cf817515af"
+            ]
+        ]
+    },
+    {
+        "id": "1c4e9436a4330048",
+        "type": "ui-number-input",
+        "z": "b9d029b2b355aff5",
+        "group": "f5c13676a58d7dee",
+        "name": "CO2 alarm update periode",
+        "label": "CO2 alarm update periode (min)",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "65535",
+        "step": "1",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 940,
+        "y": 1660,
+        "wires": [
+            [
+                "79149ec865d4ac8f"
+            ]
+        ]
+    },
+    {
+        "id": "0b2934fe23bfd6e8",
+        "type": "ui-button",
+        "z": "b9d029b2b355aff5",
+        "group": "f5c13676a58d7dee",
+        "name": "Send",
+        "label": "Send",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 870,
+        "y": 1700,
+        "wires": [
+            [
+                "2af045258405cd2c",
+                "09bbe68f1d781d4d"
+            ]
+        ]
+    },
+    {
+        "id": "651738613eeeb9f7",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 16",
+        "func": "global.set(\"changeBat\", msg.payload);",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 1280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a758e6574d630230",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 17",
+        "func": "global.set(\"changeTemp\", msg.payload);",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 1320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a0a37fe3017907da",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 18",
+        "func": "global.set(\"changeHum\", msg.payload);",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 1360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9f9b5f2c109ed16d",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 19",
+        "func": "global.set(\"changeCO2\", msg.payload);",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 1400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2976ae696cdb2ae1",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "d": true,
+        "name": "function 1",
+        "func": "\nvar payload = \"INSERT INTO `testdb` (`cyclustime`, `machineid`, `break`, `produced`, `error`) VALUES (\"+msg.payload.CyclusTime+\",\"+msg.payload.MachineID+\",\"+msg.payload.Pauze+\",\"+msg.payload.Produced+\",\"+msg.payload.Storing+\");\"\n\nmsg.topic = payload;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 100,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "54cff88134b917f7",
+        "type": "comment",
+        "z": "b9d029b2b355aff5",
+        "name": "Test node",
+        "info": "",
+        "x": 100,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "2fea3bbfdcfc3b6d",
+        "type": "comment",
+        "z": "b9d029b2b355aff5",
+        "name": "Send thresholds and update",
+        "info": "",
+        "x": 940,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "9d7a0280205e6050",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 20",
+        "func": "\nmsg.topic = \"Select * from parameters ORDER BY `id` DESC LIMIT 1\"\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 1560,
+        "wires": [
+            [
+                "45622794f0141424"
+            ]
+        ]
+    },
+    {
+        "id": "844ea5f1468c2aad",
+        "type": "inject",
+        "z": "b9d029b2b355aff5",
+        "name": "Startup",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 200,
+        "y": 1560,
+        "wires": [
+            [
+                "9d7a0280205e6050"
+            ]
+        ]
+    },
+    {
+        "id": "45622794f0141424",
+        "type": "mysql",
+        "z": "b9d029b2b355aff5",
+        "mydb": "7a0a10afad16721c",
+        "name": "",
+        "x": 490,
+        "y": 1560,
+        "wires": [
+            [
+                "fb40f7577ae25fa7"
+            ]
+        ]
+    },
+    {
+        "id": "f7d4115c84275769",
+        "type": "comment",
+        "z": "b9d029b2b355aff5",
+        "name": "Get last parameter Values",
+        "info": "",
+        "x": 390,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "fb40f7577ae25fa7",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 21",
+        "func": "return [\n    { payload: msg.payload[0].health },\n    { payload: msg.payload[0].sample },\n    { payload: msg.payload[0].batPeriod },\n    { payload: msg.payload[0].tempPeriod },\n    { payload: msg.payload[0].humPeriod },\n    { payload: msg.payload[0].co2Period }\n];",
+        "outputs": 6,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 1560,
+        "wires": [
+            [
+                "6e509563b9a0d441"
+            ],
+            [
+                "59040472b0518190"
+            ],
+            [
+                "e84d1bd289f3b21f"
+            ],
+            [
+                "39539dfb4cf5a82b"
+            ],
+            [
+                "b36fed41a42dbbdf"
+            ],
+            [
+                "1c4e9436a4330048"
+            ]
+        ]
+    },
+    {
+        "id": "7503e1232557c695",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 22",
+        "func": "global.set(\"health\", msg.payload);",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 1460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b22fdd4cce085c42",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 23",
+        "func": "global.set(\"sample\", msg.payload);",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 1500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "10d76dd4648570d0",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 24",
+        "func": "global.set(\"batPeriod\", msg.payload);",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 1540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d672c95aa3145b3f",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 25",
+        "func": "global.set(\"tempPeriod\", msg.payload);",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 1580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6c3c87cf817515af",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 26",
+        "func": "global.set(\"humPeriod\", msg.payload);",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 1620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "79149ec865d4ac8f",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 27",
+        "func": "global.set(\"co2Period\", msg.payload);",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 1660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "65abc4538be0f8c2",
+        "type": "mysql",
+        "z": "b9d029b2b355aff5",
+        "mydb": "7a0a10afad16721c",
+        "name": "",
+        "x": 1330,
+        "y": 1760,
+        "wires": [
+            [
+                "b30e24637d42f290"
+            ]
+        ]
+    },
+    {
+        "id": "2af045258405cd2c",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 28",
+        "func": "let health = global.get(\"health\");\nlet sample = global.get(\"sample\");\nlet batPeriod = global.get(\"batPeriod\");\nlet tempPeriod = global.get(\"tempPeriod\");\nlet humPeriod = global.get(\"humPeriod\");\nlet co2Period = global.get(\"co2Period\");\n\nmsg.topic = \"INSERT INTO `parameters` (`health`,`sample`,`batPeriod`,`tempPeriod`,`humPeriod`,`co2Period`) VALUES (\" \n    + health + \",\" \n    + sample + \",\" \n    + batPeriod + \",\" \n    + tempPeriod + \",\" \n    + humPeriod + \",\" \n    + co2Period + \");\";\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 1760,
+        "wires": [
+            [
+                "65abc4538be0f8c2"
+            ]
+        ]
+    },
+    {
+        "id": "b30e24637d42f290",
+        "type": "debug",
+        "z": "b9d029b2b355aff5",
+        "name": "Inserted information",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1500,
+        "y": 1760,
+        "wires": []
+    },
+    {
+        "id": "09bbe68f1d781d4d",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 29",
+        "func": "let header = 0b00011001;\nlet changemask = 0b00111111;\n\nlet health = global.get(\"health\");\nlet sample = global.get(\"sample\");\nlet batPeriod = global.get(\"batPeriod\");\nlet tempPeriod = global.get(\"tempPeriod\");\nlet humPeriod = global.get(\"humPeriod\");\nlet co2Period = global.get(\"co2Period\");\n\n// Helper to split uint16 into high and low bytes\nfunction toUint16Bytes(value) {\n    return [(value >> 8) & 0xFF, value & 0xFF];\n}\n\nlet bytes = [\n    header,\n    changemask,\n    ...toUint16Bytes(health),\n    ...toUint16Bytes(sample),\n    ...toUint16Bytes(batPeriod),\n    ...toUint16Bytes(tempPeriod),\n    ...toUint16Bytes(humPeriod),\n    ...toUint16Bytes(co2Period)\n];\n\nmsg.payload = {\n    downlinks: [{\n        f_port: 1,\n        frm_payload: Buffer.from(bytes).toString(\"base64\")\n    }]\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 1720,
+        "wires": [
+            [
+                "04251ba44a78e11c",
+                "c311b44b44877967"
+            ]
+        ]
+    },
+    {
+        "id": "04251ba44a78e11c",
+        "type": "mqtt out",
+        "z": "b9d029b2b355aff5",
+        "name": "",
+        "topic": "v3/iot-class-han-hasstt/devices/forest-sensor/down/push",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "732c62bec9786f14",
+        "x": 1490,
+        "y": 1720,
+        "wires": []
+    },
+    {
+        "id": "c311b44b44877967",
+        "type": "mqtt out",
+        "z": "b9d029b2b355aff5",
+        "name": "",
+        "topic": "v3/thingsuno4huls6@ttn/devices/eui-0004a30b001ea0eb/down/push",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "84a6706d826fbfc2",
+        "x": 1530,
+        "y": 1680,
+        "wires": []
+    },
+    {
+        "id": "732c62bec9786f14",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "eu1.cloud.thethings.network",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "84a6706d826fbfc2",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "eu1.cloud.thethings.network",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "7a0a10afad16721c",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "Pi5Thijs",
+        "port": "3306",
+        "db": "iot",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "74c4806cc843208a",
+        "type": "ui-group",
+        "name": "Threshold settings",
+        "page": "e4cbf99cebf252ab",
+        "width": 6,
+        "height": 1,
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "f5c13676a58d7dee",
+        "type": "ui-group",
+        "name": "Node parameters",
+        "page": "e4cbf99cebf252ab",
+        "width": 6,
+        "height": 1,
+        "order": 3,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "46942c2f9624ef30",
+        "type": "ui-group",
+        "name": "Last values",
+        "page": "e4cbf99cebf252ab",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "e4cbf99cebf252ab",
+        "type": "ui-page",
+        "name": "Forest Alarm Sensor",
+        "ui": "6683dad45fcfca55",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "99ca8008811025fd",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "6683dad45fcfca55",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "99ca8008811025fd",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "8fa41465edb75886",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-node-mysql": "3.0.0",
+            "@flowfuse/node-red-dashboard": "1.30.2"
+        }
+    }
+]
