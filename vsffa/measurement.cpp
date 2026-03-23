@@ -1,4 +1,4 @@
-#include "measurement.h"
+#include "measurement.hpp"
 
 void Measurement::setThreshold(uint8_t thresh)
 {
@@ -14,8 +14,10 @@ void Measurement::setMaxChange(uint8_t change)
 
 bool Measurement::gotTriggered()
 {
-    if(sensorType = BATT_SW) {triggered = (value <= threshold);}
-    else {triggered = (value >= threshold);}
+    if(sensor == BATT_SW) 
+        triggered = (value <= threshold);
+    else 
+        triggered = (value >= threshold);
     
     return triggered;
 }

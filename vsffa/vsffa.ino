@@ -4,6 +4,7 @@
 #include "formatter.hpp"
 #include "measurement.hpp"
 #include "scheduler.hpp"
+#include "sensor.hpp"
 
 const char *appEui = "70B3D57ED004CFFB";
 const char *appKey = "A7ACEC296DB8B83D02DD08CDE378845E";
@@ -14,11 +15,19 @@ const char *appKey = "A7ACEC296DB8B83D02DD08CDE378845E";
 TheThingsNetwork ttn(loraSerial, Serial, freqPlan);
 
 Measurement measurements[] = {
-  {false, 10},
-  {true, 20},
-  {false, 30},
-  {false, 70}
+  {BATT_SW, 30, 10},
+  {TEMP_POT, 50, 10},
+  {HUMID_POT, 30, 255},
+  {CO2_SW, 200, 20}
 };
+
+Potmeter temperature(A0, -10, 90);
+Potmeter hummity(A1, 0, 100);
+
+Button battery(8, 33, 28);
+Button smoke(9, 40, 250);
+
+
 
 void Send(void);
 void Sample(void);
@@ -33,6 +42,11 @@ void setup() {
 
   Serial.begin(9600);
   while (!Serial && millis() < 10000);
+
+  temperature.begin();
+  hummity.begin();
+  smoke.begin();
+  battery.begin();
 
   loraSerial.begin(57600);
 
@@ -56,22 +70,6 @@ void setup() {
 
 void loop() {
   scheduler.Tick();
-  // delay(16000);
-  // LowPower.idle(SLEEP_8S, ADC_OFF, TIMER4_OFF, TIMER3_OFF, TIMER1_OFF, 
-  // 		  TIMER0_OFF, SPI_OFF, USART1_OFF, TWI_OFF, USB_ON);
-  // LowPower.idle(SLEEP_8S, ADC_OFF, TIMER4_OFF, TIMER3_OFF, TIMER1_OFF, 
-  //     TIMER0_OFF, SPI_OFF, USART1_OFF, TWI_OFF, USB_ON);
-  // ttn.wake();
-  // formater.Send(HEALTH);
-  // ttn.sleep(UINT32_MAX);
-  // // delay(16000);
-  // LowPower.idle(SLEEP_8S, ADC_OFF, TIMER4_OFF, TIMER3_OFF, TIMER1_OFF, 
-  // 		  TIMER0_OFF, SPI_OFF, USART1_OFF, TWI_OFF, USB_ON);
-  // LowPower.idle(SLEEP_8S, ADC_OFF, TIMER4_OFF, TIMER3_OFF, TIMER1_OFF, 
-  //     TIMER0_OFF, SPI_OFF, USART1_OFF, TWI_OFF, USB_ON);
-  // ttn.wake();
-  // formater.Send(ALARM);
-  // ttn.sleep(UINT32_MAX);
 }
 
 
@@ -93,5 +91,14 @@ void Send(void)
 
 void Sample(void)
 {
+  static uint8_t prvAlarm = 0;
+
   Serial.println("Sample");
+
+  measurements[BATT_SW].addValue(battery.readValue());
+  measurements[TEMP_POT].addValue(temperature.readValue());
+  measurements[HUMID_POT].addValue(hummity.readValue());
+  measurements[CO2_SW].addValue(smoke.readValue());
+
+  formater.Send(ALARM);
 }

@@ -1,13 +1,16 @@
 #ifndef MEASUREMENT_H
 #define MEASUREMENT_H
 
+#include <stdint.h>
+
 enum sensorType
 {
-    HUMID_POT,
+    BATT_SW,
     TEMP_POT,
+    HUMID_POT,
     CO2_SW,
-    BATT_SW
-}
+    MAX_SENSOR
+};
 
 class Measurement
 {
@@ -25,6 +28,6 @@ class Measurement
         bool gotTriggered();
         void addValue(uint8_t val);
         uint8_t getValue();
-}
+};
 
 #endif

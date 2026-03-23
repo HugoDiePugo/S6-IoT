@@ -13,15 +13,24 @@ void Formater::Send(cmd_e cmd)
   uint8_t i = 0;
   payload[i++] = HEADER(cmd);
   if (cmd == ALARM) {
+    uint8_t mask;
     for (uint8_t j = 0; j < amountOfMeasurements; j++) {
-      alarmsMask |= measurements[j].GotTriggered() << j;
-      scheduler->ActiveAlarm(alarmsMask);
+      mask |= measurements[j].gotTriggered() << j;
     }
+    scheduler->ActiveAlarm(alarmsMask);
+    bool newAlarms = ((alarmsMask ^ mask) & mask);
+    alarmsMask = mask;
+
+    if (!newAlarms) {
+      Serial.println("No new alarms");
+      return;
+    }
+
     payload[i++] = alarmsMask;
   }
 
   for (uint8_t j = 0; j < amountOfMeasurements; j++) {
-    payload[i++] = measurements[j].GetValue();
+    payload[i++] = measurements[j].getValue();
   }
 
   ttn->sendBytes(payload, i);
@@ -61,11 +70,11 @@ void Formater::Receive(const uint8_t *payload, size_t size, port_t port)
           if (j & 1) {
             Serial.print("maxChange: ");
             Serial.println(payload[i]);
-            measurements[j>>1].SetMaxChange(payload[i]);
+            measurements[j>>1].setMaxChange(payload[i]);
           } else {
             Serial.print("Threshold: ");
             Serial.println(payload[i]);
-            measurements[j>>1].SetThreshold(payload[i]);
+            measurements[j>>1].setThreshold(payload[i]);
           }
         }
         i++;
@@ -85,7 +94,7 @@ void Formater::Receive(const uint8_t *payload, size_t size, port_t port)
         if (changedMask & 1) {
             Serial.print("period: ");
             Serial.println(data[j] >> 8 | data[j] << 8);
-            scheduler->SetPeriodTime((period_e)j, data[j]);
+            scheduler->SetPeriodTime((period_e)j, data[j] >> 8 | data[j] << 8);
         }
         changedMask = changedMask >> 1;
       }
