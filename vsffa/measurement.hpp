@@ -3,6 +3,8 @@
 
 #include <stdint.h>
 
+
+
 enum sensorType
 {
     BATT_SW,
@@ -11,6 +13,8 @@ enum sensorType
     CO2_SW,
     MAX_SENSOR
 };
+
+
 
 class Measurement
 {
@@ -21,8 +25,9 @@ class Measurement
         uint8_t value = 0;
         uint8_t prev = 0;
         bool triggered = false;
+        bool startUp;
 
-        Measurement(sensorType s, uint8_t t, uint8_t c) : sensor(s), threshold(t), maxChange(c) {}
+        Measurement(sensorType s, uint8_t t, uint8_t c) : sensor(s), threshold(t), maxChange(c), startUp(true) {}
         void setThreshold(uint8_t thresh);
         void setMaxChange(uint8_t change);
         bool gotTriggered();

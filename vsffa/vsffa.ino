@@ -27,8 +27,6 @@ Potmeter hummity(A1, 0, 100);
 Button battery(8, 33, 28);
 Button smoke(9, 40, 250);
 
-
-
 void Send(void);
 void Sample(void);
 
@@ -36,6 +34,7 @@ Scheduler scheduler(4, &ttn, Sample, Send);
 Formater formater(measurements, 4, &ttn, &scheduler);
 
 void Receive(const uint8_t *payload, size_t size, port_t port);
+
 
 
 void setup() {
@@ -52,8 +51,6 @@ void setup() {
 
   ttn.onMessage(Receive);
   ttn.reset();
-
-
 
   Serial.println("-- STATUS");
   ttn.showStatus();

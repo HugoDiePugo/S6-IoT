@@ -1,7 +1,7 @@
+#include "USBAPI.h"
 #include <stdint.h>
 #include "formatter.hpp"
 
-#include <Arduino.h>
 
 
 void Formater::Send(cmd_e cmd)
@@ -17,13 +17,16 @@ void Formater::Send(cmd_e cmd)
     for (uint8_t j = 0; j < amountOfMeasurements; j++) {
       mask |= measurements[j].gotTriggered() << j;
     }
-    scheduler->ActiveAlarm(alarmsMask);
     bool newAlarms = ((alarmsMask ^ mask) & mask);
-    alarmsMask = mask;
+    alarmsMask |= mask;
+    scheduler->ActiveAlarm(alarmsMask);
 
     if (!newAlarms) {
       Serial.println("No new alarms");
       return;
+    } else {
+      Serial.print("New Alarm: ");
+      Serial.println(newAlarms);
     }
 
     payload[i++] = alarmsMask;

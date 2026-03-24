@@ -15,9 +15,6 @@ void Scheduler::SetPeriodTime(period_e period, uint16_t time)
 
 void Scheduler::ActiveAlarm(uint8_t alarmMask)
 {
-  Serial.print("Alarmmask ");
-  Serial.println(alarmMask);
-
   if (!alarmMask) {
 
     sendPeriod = periodTimes[P_HEALTH];
@@ -36,7 +33,7 @@ void Scheduler::ActiveAlarm(uint8_t alarmMask)
     }
   }
 
-  if (UINT16_MAX) {
+  if (sendPeriod == UINT16_MAX) {
     sendPeriod = periodTimes[P_HEALTH];
   } else {
     sendPeriod = newSendPeriod;

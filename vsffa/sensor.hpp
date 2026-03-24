@@ -1,5 +1,3 @@
-#include <Arduino.h>
-
 // ===================== Button =====================
 class Button {
 private:
@@ -25,6 +23,8 @@ public:
       }      
     }
 };
+
+
 
 // ===================== Potmeter =====================
 class Potmeter {

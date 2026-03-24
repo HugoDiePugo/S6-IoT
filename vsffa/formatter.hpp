@@ -19,6 +19,8 @@ typedef enum {
   RESET
 } cmd_e;
 
+
+
 class Formater {
 private:
     Measurement* measurements;
@@ -28,13 +30,11 @@ private:
     Scheduler* scheduler;
 
 public:
-    // Constructor
     Formater(Measurement* measurements, uint8_t amountOfMeasurements, TheThingsNetwork* ttn, Scheduler* scheduler)
         : measurements{measurements}, amountOfMeasurements{amountOfMeasurements}, ttn{ttn}, scheduler{scheduler} {
             assert(amountOfMeasurements <= 4);
         }
 
-    // Methods
     void Send(cmd_e cmd);
     void Receive(const uint8_t *payload, size_t size, port_t port);
 };
