@@ -2,7 +2,7 @@
     {
         "id": "b9d029b2b355aff5",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "Flow VSFFA",
         "disabled": false,
         "info": ""
     },
@@ -11,7 +11,7 @@
         "type": "mqtt in",
         "z": "b9d029b2b355aff5",
         "name": "",
-        "topic": "v3/iot-class-han-hasstt/devices/forest-sensor/up",
+        "topic": "v3/iot-class-han-hasstt@ttn/devices/forest-sensor/up",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "732c62bec9786f14",
@@ -19,10 +19,11 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 560,
+        "x": 570,
         "y": 580,
         "wires": [
             [
+                "a208222ec38b1229",
                 "f7f122e3bc1449a8"
             ]
         ]
@@ -53,9 +54,9 @@
         "id": "f3147b6ed3aa3f1e",
         "type": "mysql",
         "z": "b9d029b2b355aff5",
-        "mydb": "7a0a10afad16721c",
+        "mydb": "53c770d1470352e2",
         "name": "",
-        "x": 1570,
+        "x": 1610,
         "y": 540,
         "wires": [
             [
@@ -103,8 +104,7 @@
         "wires": [
             [
                 "2f6c36e59f8f664a",
-                "fcb741169bd041fe",
-                "7be28e72dabb5aaa"
+                "fcb741169bd041fe"
             ]
         ]
     },
@@ -283,8 +283,7 @@
         "y": 800,
         "wires": [
             [
-                "8ce0176390aa0d07",
-                "7be28e72dabb5aaa"
+                "8ce0176390aa0d07"
             ]
         ]
     },
@@ -314,8 +313,8 @@
         "z": "b9d029b2b355aff5",
         "name": "Battery",
         "group": "46942c2f9624ef30",
-        "order": 6,
-        "value": "payload[0].bat",
+        "order": 4,
+        "value": "payload[0].battery_voltage",
         "valueType": "msg",
         "width": 3,
         "height": 3,
@@ -368,8 +367,8 @@
         "z": "b9d029b2b355aff5",
         "name": "Temperature",
         "group": "46942c2f9624ef30",
-        "order": 4,
-        "value": "payload[0].temp",
+        "order": 2,
+        "value": "payload[0].temperature_c",
         "valueType": "msg",
         "width": 3,
         "height": 3,
@@ -422,8 +421,8 @@
         "z": "b9d029b2b355aff5",
         "name": "Humidity",
         "group": "46942c2f9624ef30",
-        "order": 3,
-        "value": "payload[0].hum",
+        "order": 1,
+        "value": "payload[0].humidity_percent",
         "valueType": "msg",
         "width": 3,
         "height": 3,
@@ -476,8 +475,8 @@
         "z": "b9d029b2b355aff5",
         "name": "CO2",
         "group": "46942c2f9624ef30",
-        "order": 5,
-        "value": "payload[0].co2",
+        "order": 3,
+        "value": "payload[0].co2_ppm",
         "valueType": "msg",
         "width": 3,
         "height": 3,
@@ -525,102 +524,6 @@
         ]
     },
     {
-        "id": "ed100680dcd4ed40",
-        "type": "ui-gauge",
-        "z": "b9d029b2b355aff5",
-        "name": "Battery trigger",
-        "group": "46942c2f9624ef30",
-        "order": 1,
-        "value": "payload.battery",
-        "valueType": "msg",
-        "width": 3,
-        "height": 3,
-        "gtype": "gauge-half",
-        "gstyle": "needle",
-        "title": "Battery triggered?",
-        "alwaysShowTitle": false,
-        "floatingTitlePosition": "top-left",
-        "units": "",
-        "icon": "",
-        "prefix": "",
-        "suffix": "",
-        "segments": [
-            {
-                "from": "0",
-                "color": "#5cd65c",
-                "text": "No",
-                "textType": "str"
-            },
-            {
-                "from": "0.5",
-                "color": "#ea5353",
-                "text": "Yes",
-                "textType": "str"
-            }
-        ],
-        "min": 0,
-        "max": "1",
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "styleRounded": true,
-        "styleGlow": false,
-        "className": "",
-        "x": 1940,
-        "y": 660,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "070392fced4375f8",
-        "type": "ui-gauge",
-        "z": "b9d029b2b355aff5",
-        "name": "Alarm",
-        "group": "46942c2f9624ef30",
-        "order": 2,
-        "value": "payload.alarm",
-        "valueType": "msg",
-        "width": 3,
-        "height": 3,
-        "gtype": "gauge-half",
-        "gstyle": "needle",
-        "title": "Alarm?",
-        "alwaysShowTitle": false,
-        "floatingTitlePosition": "top-left",
-        "units": "",
-        "icon": "",
-        "prefix": "",
-        "suffix": "",
-        "segments": [
-            {
-                "from": "0",
-                "color": "#5cd65c",
-                "text": "No",
-                "textType": "str"
-            },
-            {
-                "from": "0.5",
-                "color": "#ea5353",
-                "text": "Yes",
-                "textType": "str"
-            }
-        ],
-        "min": 0,
-        "max": "1",
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "styleRounded": true,
-        "styleGlow": false,
-        "className": "",
-        "x": 1910,
-        "y": 620,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "adfd11ae583d522d",
         "type": "trigger",
         "z": "b9d029b2b355aff5",
@@ -641,8 +544,7 @@
         "y": 540,
         "wires": [
             [
-                "3c365239a1ca90da",
-                "7be28e72dabb5aaa"
+                "3c365239a1ca90da"
             ]
         ]
     },
@@ -650,15 +552,15 @@
         "id": "3c365239a1ca90da",
         "type": "function",
         "z": "b9d029b2b355aff5",
-        "name": "function 3",
-        "func": "\nmsg.topic = \"Select * from data ORDER BY `id` DESC LIMIT 1\"\n\nreturn msg;",
+        "name": "function get data",
+        "func": "let dev = global.get(\"deviceSelected\");\n\nmsg.topic = \"SELECT * FROM measurement WHERE deviceeui = '\" + dev + \"' ORDER BY `uuid` DESC LIMIT 1\";\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1420,
+        "x": 1450,
         "y": 540,
         "wires": [
             [
@@ -670,9 +572,9 @@
         "id": "6f7ca5939eeae2fd",
         "type": "mysql",
         "z": "b9d029b2b355aff5",
-        "mydb": "7a0a10afad16721c",
+        "mydb": "53c770d1470352e2",
         "name": "",
-        "x": 1010,
+        "x": 1070,
         "y": 540,
         "wires": [
             [
@@ -684,15 +586,15 @@
         "id": "f7f122e3bc1449a8",
         "type": "function",
         "z": "b9d029b2b355aff5",
-        "name": "function 5",
-        "func": "// msg.payload = msg.payload.uplink_message.decoded_payload\n\nlet dev = msg.payload?.end_device_ids?.dev_eui ?? 0;\nlet time = msg.payload?.received_at ?? 0;\nlet bat = msg.payload?.uplink_message?.decoded_payload?.Measurements?.[0]/10 ?? 0;\nlet temp = msg.payload?.uplink_message?.decoded_payload?.Measurements?.[1] ?? 0;\nlet hum = msg.payload?.uplink_message?.decoded_payload?.Measurements?.[2] ?? 0;\nlet co2 = msg.payload?.uplink_message?.decoded_payload?.Measurements?.[3]*10 ?? 0;\nlet alarm = msg.payload?.uplink_message?.decoded_payload?.Alarm ?? 0;\nvar payload = \"INSERT INTO `data` (`dev`, `bat`, `temp`, `hum`, `co2`,`alarm`) VALUES (\\\"\" + dev + \"\\\",\" + bat + \",\" + temp + \",\" + hum + \",\" + co2 + \",\" + alarm +\");\"\n\nmsg.topic = payload;\n\nreturn msg;",
+        "name": "function receive",
+        "func": "// msg.payload = msg.payload.uplink_message.decoded_payload\n\nlet dev = msg.payload?.end_device_ids?.dev_eui ?? 0;\nlet time = msg.payload?.received_at ?? 0;\nlet bat = msg.payload?.uplink_message?.decoded_payload?.Measurements?.[0]/10 ?? 0;\nlet temp = msg.payload?.uplink_message?.decoded_payload?.Measurements?.[1] ?? 0;\nlet hum = msg.payload?.uplink_message?.decoded_payload?.Measurements?.[2] ?? 0;\nlet co2 = msg.payload?.uplink_message?.decoded_payload?.Measurements?.[3]*10 ?? 0;\n\nlet alarm = msg.payload?.uplink_message?.decoded_payload?.Alarm ?? 0;\n\nvar payload = \"INSERT INTO `measurement` (`deviceeui`, `battery_voltage`, `temperature_c`, `humidity_percent`, `co2_ppm`) VALUES (\\\"\" + dev + \"\\\",\" + bat + \",\" + temp + \",\" + hum + \",\" + co2 +\");\"\n// var payload = \"INSERT INTO `data` (`dev`, `bat`, `temp`, `hum`, `co2`,`alarm`) VALUES (\\\"\" + dev + \"\\\",\" + bat + \",\" + temp + \",\" + hum + \",\" + co2 + \",\" + alarm +\");\"\n\nmsg.topic = payload;\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 880,
+        "x": 900,
         "y": 540,
         "wires": [
             [
@@ -715,7 +617,7 @@
         "type": "ui-text",
         "z": "b9d029b2b355aff5",
         "group": "46942c2f9624ef30",
-        "order": 7,
+        "order": 5,
         "width": 0,
         "height": 0,
         "name": "Timestamp",
@@ -728,7 +630,7 @@
         "color": "#717171",
         "wrapText": false,
         "className": "",
-        "value": "payload[0].timestamp",
+        "value": "payload[0].time_received",
         "valueType": "msg",
         "x": 1930,
         "y": 420,
@@ -751,7 +653,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "str",
-        "x": 1020,
+        "x": 1060,
         "y": 600,
         "wires": [
             [
@@ -763,7 +665,7 @@
         "id": "5e6b229924130a58",
         "type": "function",
         "z": "b9d029b2b355aff5",
-        "name": "function 4",
+        "name": "function save  bat",
         "func": "global.set(\"minBat\", msg.payload);",
         "outputs": 1,
         "timeout": 0,
@@ -771,7 +673,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1180,
+        "x": 1210,
         "y": 1120,
         "wires": [
             []
@@ -781,7 +683,7 @@
         "id": "51857d7ca8deba9d",
         "type": "function",
         "z": "b9d029b2b355aff5",
-        "name": "function 7",
+        "name": "function save temp",
         "func": "global.set(\"maxTemp\", msg.payload);",
         "outputs": 1,
         "timeout": 0,
@@ -789,7 +691,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1180,
+        "x": 1210,
         "y": 1160,
         "wires": [
             []
@@ -799,7 +701,7 @@
         "id": "7f0d4bc8adb60f54",
         "type": "function",
         "z": "b9d029b2b355aff5",
-        "name": "function 8",
+        "name": "function save hum",
         "func": "global.set(\"minHum\", msg.payload);",
         "outputs": 1,
         "timeout": 0,
@@ -807,7 +709,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1180,
+        "x": 1210,
         "y": 1200,
         "wires": [
             []
@@ -817,7 +719,7 @@
         "id": "351d20298a0c1b82",
         "type": "function",
         "z": "b9d029b2b355aff5",
-        "name": "function 9",
+        "name": "function save co2",
         "func": "global.set(\"maxCO2\", msg.payload);",
         "outputs": 1,
         "timeout": 0,
@@ -825,7 +727,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1180,
+        "x": 1210,
         "y": 1240,
         "wires": [
             []
@@ -835,15 +737,15 @@
         "id": "2f6c36e59f8f664a",
         "type": "function",
         "z": "b9d029b2b355aff5",
-        "name": "function 6",
-        "func": "let minBat = global.get(\"minBat\");\nlet batMaxChange = global.get(\"changeBat\");\nlet maxTemp = global.get(\"maxTemp\");\nlet tempMaxChange = global.get(\"changeTemp\");\nlet minHum = global.get(\"minHum\");\nlet humMaxChange = global.get(\"changeHum\");\nlet maxCO2 = global.get(\"maxCO2\");\nlet co2MaxChange = global.get(\"changeCO2\");\n\nmsg.topic = \"INSERT INTO `thresholds` (`minBat`,`changeBat`,`maxTemp`,`changeTemp`,`minHum`,`changeHum`,`maxCO2`,`changeCO2`) VALUES (\" \n    + minBat + \",\" \n    + batMaxChange + \",\" \n    + maxTemp + \",\" \n    + tempMaxChange + \",\" \n    + minHum + \",\" \n    + humMaxChange + \",\" \n    + maxCO2 + \",\" \n    + co2MaxChange + \");\";\n\nreturn msg;",
+        "name": "function insert thres",
+        "func": "let minBat = global.get(\"minBat\");\nlet batMaxChange = global.get(\"changeBat\");\nlet maxTemp = global.get(\"maxTemp\");\nlet tempMaxChange = global.get(\"changeTemp\");\nlet minHum = global.get(\"minHum\");\nlet humMaxChange = global.get(\"changeHum\");\nlet maxCO2 = global.get(\"maxCO2\");\nlet co2MaxChange = global.get(\"changeCO2\");\n\nlet dev = global.get(\"deviceSelected\");\n\nmsg.topic = \"UPDATE `Devices` SET \"\n    + \"`threshold_battery` = \" + minBat + \", \"\n    + \"`max_rate_of_change_battery` = \" + batMaxChange + \", \"\n    + \"`threshold_temperature` = \" + maxTemp + \", \"\n    + \"`max_rate_of_change_temperature` = \" + tempMaxChange + \", \"\n    + \"`threshold_humidity` = \" + minHum + \", \"\n    + \"`max_rate_of_change_humidity` = \" + humMaxChange + \", \"\n    + \"`threshold_co2` = \" + maxCO2 + \", \"\n    + \"`max_rate_of_change_co2` = \" + co2MaxChange + \" \"\n    + \"WHERE `deviceeui` = '\" + dev + \"';\";\n\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1160,
+        "x": 1150,
         "y": 880,
         "wires": [
             [
@@ -872,7 +774,7 @@
         "id": "94c754325e6eb5b7",
         "type": "mysql",
         "z": "b9d029b2b355aff5",
-        "mydb": "7a0a10afad16721c",
+        "mydb": "53c770d1470352e2",
         "name": "",
         "x": 1370,
         "y": 880,
@@ -886,16 +788,16 @@
         "id": "7fdd526b560ef018",
         "type": "function",
         "z": "b9d029b2b355aff5",
-        "name": "function 10",
-        "func": "\nmsg.topic = \"Select * from thresholds ORDER BY `id` DESC LIMIT 1\"\n\nreturn msg;",
+        "name": "function get thres",
+        "func": "let dev = global.get(\"deviceSelected\");\n\nmsg.topic = \"SELECT * FROM Devices WHERE deviceeui = '\" + dev + \"'\";\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
-        "y": 1260,
+        "x": 290,
+        "y": 1420,
         "wires": [
             [
                 "568004a59c7982b1"
@@ -911,10 +813,10 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": 0.1,
+        "onceDelay": "0.2",
         "topic": "",
-        "x": 200,
-        "y": 1260,
+        "x": 120,
+        "y": 1420,
         "wires": [
             [
                 "7fdd526b560ef018"
@@ -925,10 +827,10 @@
         "id": "568004a59c7982b1",
         "type": "mysql",
         "z": "b9d029b2b355aff5",
-        "mydb": "7a0a10afad16721c",
+        "mydb": "53c770d1470352e2",
         "name": "",
-        "x": 490,
-        "y": 1260,
+        "x": 450,
+        "y": 1420,
         "wires": [
             [
                 "67834683a6189725"
@@ -939,16 +841,16 @@
         "id": "67834683a6189725",
         "type": "function",
         "z": "b9d029b2b355aff5",
-        "name": "function 11",
-        "func": "return [\n    { payload: msg.payload[0].minBat },\n    { payload: msg.payload[0].maxTemp },\n    { payload: msg.payload[0].minHum },\n    { payload: msg.payload[0].maxCO2 },\n    { payload: msg.payload[0].changeBat },\n    { payload: msg.payload[0].changeTemp },\n    { payload: msg.payload[0].changeHum },\n    { payload: msg.payload[0].changeCO2 }\n];",
-        "outputs": 8,
+        "name": "function conv thres",
+        "func": "return [\n    { payload: msg.payload[0].threshold_battery },\n    { payload: msg.payload[0].threshold_temperature },\n    { payload: msg.payload[0].threshold_humidity },\n    { payload: msg.payload[0].threshold_co2 },\n    { payload: msg.payload[0].max_rate_of_change_battery },\n    { payload: msg.payload[0].max_rate_of_change_temperature },\n    { payload: msg.payload[0].max_rate_of_change_humidity },\n    { payload: msg.payload[0].max_rate_of_change_co2 },\n    { payload: msg.payload[0].health_update_period },\n    { payload: msg.payload[0].sample_period },\n    { payload: msg.payload[0].battery_alarm_period },\n    { payload: msg.payload[0].temperature_alarm_period },\n    { payload: msg.payload[0].humidity_alarm_period },\n    { payload: msg.payload[0].co2_alarm_period }\n];",
+        "outputs": 14,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
-        "y": 1260,
+        "x": 610,
+        "y": 1420,
         "wires": [
             [
                 "1b8e27fbda386b92"
@@ -973,86 +875,24 @@
             ],
             [
                 "f6bc9eb6f6dbc017"
-            ]
-        ]
-    },
-    {
-        "id": "0d0cc9922b23604c",
-        "type": "function",
-        "z": "b9d029b2b355aff5",
-        "name": "function 12",
-        "func": "msg.topic = `\nSELECT\n    (SELECT bat FROM data ORDER BY id DESC LIMIT 1) AS last_bat,\n    (SELECT minBat FROM thresholds ORDER BY id DESC LIMIT 1) AS last_minBat,\n\n    (SELECT temp FROM data ORDER BY id DESC LIMIT 1) AS last_temp,\n    (SELECT maxTemp FROM thresholds ORDER BY id DESC LIMIT 1) AS last_maxTemp,\n\n    (SELECT hum FROM data ORDER BY id DESC LIMIT 1) AS last_hum,\n    (SELECT minHum FROM thresholds ORDER BY id DESC LIMIT 1) AS last_minHum,\n\n    (SELECT co2 FROM data ORDER BY id DESC LIMIT 1) AS last_co2,\n    (SELECT maxCO2 FROM thresholds ORDER BY id DESC LIMIT 1) AS last_maxCO2\n`;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1430,
-        "y": 620,
-        "wires": [
+            ],
             [
-                "59dbf3e7ef50f59f"
-            ]
-        ]
-    },
-    {
-        "id": "59dbf3e7ef50f59f",
-        "type": "mysql",
-        "z": "b9d029b2b355aff5",
-        "mydb": "7a0a10afad16721c",
-        "name": "",
-        "x": 1570,
-        "y": 620,
-        "wires": [
+                "6e509563b9a0d441"
+            ],
             [
-                "be393a3120d0a29a"
-            ]
-        ]
-    },
-    {
-        "id": "7be28e72dabb5aaa",
-        "type": "delay",
-        "z": "b9d029b2b355aff5",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "50",
-        "timeoutUnits": "milliseconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 1270,
-        "y": 620,
-        "wires": [
+                "59040472b0518190"
+            ],
             [
-                "0d0cc9922b23604c"
-            ]
-        ]
-    },
-    {
-        "id": "be393a3120d0a29a",
-        "type": "function",
-        "z": "b9d029b2b355aff5",
-        "name": "function 13",
-        "func": "let data = msg.payload[0];\n\n// Battery detection (your original logic)\nlet batdetection = 0;\nif (data.last_bat < data.last_minBat) {\n    batdetection = 1;\n}\n\n// Alarm detection (ANY condition fails)\nlet alarm = 0;\n\nif (\n    data.last_bat < data.last_minBat ||   // battery too low\n    data.last_temp > data.last_maxTemp || // temperature too high\n    data.last_hum < data.last_minHum ||   // humidity too low\n    data.last_co2 > data.last_maxCO2      // CO2 too high\n) {\n    alarm = 1;\n}\n\n// Return both\nmsg.payload = {\n    battery: batdetection,\n    alarm: alarm\n};\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1710,
-        "y": 620,
-        "wires": [
+                "e84d1bd289f3b21f"
+            ],
             [
-                "ed100680dcd4ed40",
-                "070392fced4375f8"
+                "39539dfb4cf5a82b"
+            ],
+            [
+                "b36fed41a42dbbdf"
+            ],
+            [
+                "1c4e9436a4330048"
             ]
         ]
     },
@@ -1061,7 +901,7 @@
         "type": "mqtt out",
         "z": "b9d029b2b355aff5",
         "name": "",
-        "topic": "v3/iot-class-han-hasstt/devices/forest-sensor/down/push",
+        "topic": "v3/iot-class-han-hasstt@ttn/devices/forest-sensor/down/push",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -1070,7 +910,7 @@
         "correl": "",
         "expiry": "",
         "broker": "732c62bec9786f14",
-        "x": 1530,
+        "x": 1540,
         "y": 840,
         "wires": []
     },
@@ -1096,7 +936,7 @@
         "id": "fcb741169bd041fe",
         "type": "function",
         "z": "b9d029b2b355aff5",
-        "name": "function 14",
+        "name": "function send thres",
         "func": "let header = 0b00011000\nlet changemask = 0b11111111\nlet minBat = global.get(\"minBat\")*10;\nlet batMaxChange = global.get(\"changeBat\")*10;\nlet maxTemp = global.get(\"maxTemp\");\nlet tempMaxChange = global.get(\"changeTemp\");\nlet minHum = global.get(\"minHum\");\nlet humMaxChange = global.get(\"changeHum\");\nlet maxCO2 = global.get(\"maxCO2\")/10;\nlet co2MaxChange = global.get(\"changeCO2\")/10;\n\nlet bytes = [\n    header,\n    changemask,\n    minBat, \n    batMaxChange, \n    maxTemp, \n    tempMaxChange, \n    minHum,\n    humMaxChange,\n    maxCO2,\n    co2MaxChange\n    ];\n\nmsg.payload = {\n    downlinks: [{\n        f_port: 1,\n        frm_payload: Buffer.from(bytes).toString(\"base64\")\n    }]\n};\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -1104,7 +944,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1170,
+        "x": 1150,
         "y": 840,
         "wires": [
             [
@@ -1117,7 +957,7 @@
         "id": "8ce0176390aa0d07",
         "type": "function",
         "z": "b9d029b2b355aff5",
-        "name": "function 15",
+        "name": "function send reset",
         "func": "let header = 0b00011010\n\nlet bytes = [\n    header];\n\nmsg.payload = {\n    downlinks: [{\n        f_port: 1,\n        frm_payload: Buffer.from(bytes).toString(\"base64\")\n    }]\n};\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -1125,7 +965,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1170,
+        "x": 1150,
         "y": 800,
         "wires": [
             [
@@ -1138,10 +978,10 @@
         "id": "f4903aeb0ba3bf51",
         "type": "comment",
         "z": "b9d029b2b355aff5",
-        "name": "Get last threshold Values",
+        "name": "Get last values",
         "info": "",
-        "x": 390,
-        "y": 1220,
+        "x": 280,
+        "y": 1380,
         "wires": []
     },
     {
@@ -1247,9 +1087,9 @@
         "max": "65535",
         "step": 1,
         "tooltip": "",
-        "delay": 300,
+        "delay": "500",
         "passthru": true,
-        "sendOnDelay": false,
+        "sendOnDelay": true,
         "sendOnBlur": true,
         "sendOnEnter": true,
         "className": "",
@@ -1282,9 +1122,9 @@
         "max": "65535",
         "step": "1",
         "tooltip": "",
-        "delay": 300,
+        "delay": "500",
         "passthru": true,
-        "sendOnDelay": false,
+        "sendOnDelay": true,
         "sendOnBlur": true,
         "sendOnEnter": true,
         "className": "",
@@ -1387,9 +1227,9 @@
         "max": "65535",
         "step": 1,
         "tooltip": "",
-        "delay": 300,
+        "delay": "500",
         "passthru": true,
-        "sendOnDelay": false,
+        "sendOnDelay": true,
         "sendOnBlur": true,
         "sendOnEnter": true,
         "className": "",
@@ -1418,13 +1258,13 @@
         "height": 0,
         "topic": "topic",
         "topicType": "msg",
-        "min": 0,
+        "min": "1",
         "max": "65535",
         "step": "1",
         "tooltip": "",
-        "delay": 300,
+        "delay": "500",
         "passthru": true,
-        "sendOnDelay": false,
+        "sendOnDelay": true,
         "sendOnBlur": true,
         "sendOnEnter": true,
         "className": "",
@@ -1457,9 +1297,9 @@
         "max": "65535",
         "step": 1,
         "tooltip": "",
-        "delay": 300,
+        "delay": "500",
         "passthru": true,
-        "sendOnDelay": false,
+        "sendOnDelay": true,
         "sendOnBlur": true,
         "sendOnEnter": true,
         "className": "",
@@ -1488,13 +1328,13 @@
         "height": 0,
         "topic": "topic",
         "topicType": "msg",
-        "min": 0,
+        "min": "1",
         "max": "65535",
         "step": "1",
         "tooltip": "",
-        "delay": 300,
+        "delay": "500",
         "passthru": true,
-        "sendOnDelay": false,
+        "sendOnDelay": true,
         "sendOnBlur": true,
         "sendOnEnter": true,
         "className": "",
@@ -1521,7 +1361,7 @@
         "order": 7,
         "width": 0,
         "height": 0,
-        "emulateClick": false,
+        "emulateClick": true,
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -1555,7 +1395,7 @@
         "id": "651738613eeeb9f7",
         "type": "function",
         "z": "b9d029b2b355aff5",
-        "name": "function 16",
+        "name": "function save bat 2",
         "func": "global.set(\"changeBat\", msg.payload);",
         "outputs": 1,
         "timeout": 0,
@@ -1563,7 +1403,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1190,
+        "x": 1210,
         "y": 1280,
         "wires": [
             []
@@ -1573,7 +1413,7 @@
         "id": "a758e6574d630230",
         "type": "function",
         "z": "b9d029b2b355aff5",
-        "name": "function 17",
+        "name": "function save temp 2",
         "func": "global.set(\"changeTemp\", msg.payload);",
         "outputs": 1,
         "timeout": 0,
@@ -1581,7 +1421,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1190,
+        "x": 1220,
         "y": 1320,
         "wires": [
             []
@@ -1591,7 +1431,7 @@
         "id": "a0a37fe3017907da",
         "type": "function",
         "z": "b9d029b2b355aff5",
-        "name": "function 18",
+        "name": "function save hum 2",
         "func": "global.set(\"changeHum\", msg.payload);",
         "outputs": 1,
         "timeout": 0,
@@ -1599,7 +1439,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1190,
+        "x": 1220,
         "y": 1360,
         "wires": [
             []
@@ -1609,7 +1449,7 @@
         "id": "9f9b5f2c109ed16d",
         "type": "function",
         "z": "b9d029b2b355aff5",
-        "name": "function 19",
+        "name": "function save co2 2 ",
         "func": "global.set(\"changeCO2\", msg.payload);",
         "outputs": 1,
         "timeout": 0,
@@ -1617,154 +1457,27 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1190,
+        "x": 1210,
         "y": 1400,
         "wires": [
             []
         ]
     },
     {
-        "id": "2976ae696cdb2ae1",
-        "type": "function",
-        "z": "b9d029b2b355aff5",
-        "d": true,
-        "name": "function 1",
-        "func": "\nvar payload = \"INSERT INTO `testdb` (`cyclustime`, `machineid`, `break`, `produced`, `error`) VALUES (\"+msg.payload.CyclusTime+\",\"+msg.payload.MachineID+\",\"+msg.payload.Pauze+\",\"+msg.payload.Produced+\",\"+msg.payload.Storing+\");\"\n\nmsg.topic = payload;\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 100,
-        "y": 80,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "54cff88134b917f7",
-        "type": "comment",
-        "z": "b9d029b2b355aff5",
-        "name": "Test node",
-        "info": "",
-        "x": 100,
-        "y": 40,
-        "wires": []
-    },
-    {
         "id": "2fea3bbfdcfc3b6d",
         "type": "comment",
         "z": "b9d029b2b355aff5",
-        "name": "Send thresholds and update",
+        "name": "Send thresholds",
         "info": "",
-        "x": 940,
+        "x": 900,
         "y": 760,
         "wires": []
-    },
-    {
-        "id": "9d7a0280205e6050",
-        "type": "function",
-        "z": "b9d029b2b355aff5",
-        "name": "function 20",
-        "func": "\nmsg.topic = \"Select * from parameters ORDER BY `id` DESC LIMIT 1\"\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 350,
-        "y": 1560,
-        "wires": [
-            [
-                "45622794f0141424"
-            ]
-        ]
-    },
-    {
-        "id": "844ea5f1468c2aad",
-        "type": "inject",
-        "z": "b9d029b2b355aff5",
-        "name": "Startup",
-        "props": [],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 200,
-        "y": 1560,
-        "wires": [
-            [
-                "9d7a0280205e6050"
-            ]
-        ]
-    },
-    {
-        "id": "45622794f0141424",
-        "type": "mysql",
-        "z": "b9d029b2b355aff5",
-        "mydb": "7a0a10afad16721c",
-        "name": "",
-        "x": 490,
-        "y": 1560,
-        "wires": [
-            [
-                "fb40f7577ae25fa7"
-            ]
-        ]
-    },
-    {
-        "id": "f7d4115c84275769",
-        "type": "comment",
-        "z": "b9d029b2b355aff5",
-        "name": "Get last parameter Values",
-        "info": "",
-        "x": 390,
-        "y": 1520,
-        "wires": []
-    },
-    {
-        "id": "fb40f7577ae25fa7",
-        "type": "function",
-        "z": "b9d029b2b355aff5",
-        "name": "function 21",
-        "func": "return [\n    { payload: msg.payload[0].health },\n    { payload: msg.payload[0].sample },\n    { payload: msg.payload[0].batPeriod },\n    { payload: msg.payload[0].tempPeriod },\n    { payload: msg.payload[0].humPeriod },\n    { payload: msg.payload[0].co2Period }\n];",
-        "outputs": 6,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 630,
-        "y": 1560,
-        "wires": [
-            [
-                "6e509563b9a0d441"
-            ],
-            [
-                "59040472b0518190"
-            ],
-            [
-                "e84d1bd289f3b21f"
-            ],
-            [
-                "39539dfb4cf5a82b"
-            ],
-            [
-                "b36fed41a42dbbdf"
-            ],
-            [
-                "1c4e9436a4330048"
-            ]
-        ]
     },
     {
         "id": "7503e1232557c695",
         "type": "function",
         "z": "b9d029b2b355aff5",
-        "name": "function 22",
+        "name": "function save health",
         "func": "global.set(\"health\", msg.payload);",
         "outputs": 1,
         "timeout": 0,
@@ -1772,7 +1485,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1190,
+        "x": 1220,
         "y": 1460,
         "wires": [
             []
@@ -1782,7 +1495,7 @@
         "id": "b22fdd4cce085c42",
         "type": "function",
         "z": "b9d029b2b355aff5",
-        "name": "function 23",
+        "name": "function save period",
         "func": "global.set(\"sample\", msg.payload);",
         "outputs": 1,
         "timeout": 0,
@@ -1790,7 +1503,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1190,
+        "x": 1220,
         "y": 1500,
         "wires": [
             []
@@ -1800,7 +1513,7 @@
         "id": "10d76dd4648570d0",
         "type": "function",
         "z": "b9d029b2b355aff5",
-        "name": "function 24",
+        "name": "function save bat alarm",
         "func": "global.set(\"batPeriod\", msg.payload);",
         "outputs": 1,
         "timeout": 0,
@@ -1808,7 +1521,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1190,
+        "x": 1230,
         "y": 1540,
         "wires": [
             []
@@ -1818,7 +1531,7 @@
         "id": "d672c95aa3145b3f",
         "type": "function",
         "z": "b9d029b2b355aff5",
-        "name": "function 25",
+        "name": "function save temp alarm",
         "func": "global.set(\"tempPeriod\", msg.payload);",
         "outputs": 1,
         "timeout": 0,
@@ -1826,7 +1539,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1190,
+        "x": 1230,
         "y": 1580,
         "wires": [
             []
@@ -1836,7 +1549,7 @@
         "id": "6c3c87cf817515af",
         "type": "function",
         "z": "b9d029b2b355aff5",
-        "name": "function 26",
+        "name": "function save hum alarm",
         "func": "global.set(\"humPeriod\", msg.payload);",
         "outputs": 1,
         "timeout": 0,
@@ -1844,7 +1557,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1190,
+        "x": 1230,
         "y": 1620,
         "wires": [
             []
@@ -1854,7 +1567,7 @@
         "id": "79149ec865d4ac8f",
         "type": "function",
         "z": "b9d029b2b355aff5",
-        "name": "function 27",
+        "name": "function save co2 alarm",
         "func": "global.set(\"co2Period\", msg.payload);",
         "outputs": 1,
         "timeout": 0,
@@ -1862,7 +1575,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1190,
+        "x": 1230,
         "y": 1660,
         "wires": [
             []
@@ -1872,9 +1585,9 @@
         "id": "65abc4538be0f8c2",
         "type": "mysql",
         "z": "b9d029b2b355aff5",
-        "mydb": "7a0a10afad16721c",
+        "mydb": "53c770d1470352e2",
         "name": "",
-        "x": 1330,
+        "x": 1430,
         "y": 1760,
         "wires": [
             [
@@ -1886,15 +1599,15 @@
         "id": "2af045258405cd2c",
         "type": "function",
         "z": "b9d029b2b355aff5",
-        "name": "function 28",
-        "func": "let health = global.get(\"health\");\nlet sample = global.get(\"sample\");\nlet batPeriod = global.get(\"batPeriod\");\nlet tempPeriod = global.get(\"tempPeriod\");\nlet humPeriod = global.get(\"humPeriod\");\nlet co2Period = global.get(\"co2Period\");\n\nmsg.topic = \"INSERT INTO `parameters` (`health`,`sample`,`batPeriod`,`tempPeriod`,`humPeriod`,`co2Period`) VALUES (\" \n    + health + \",\" \n    + sample + \",\" \n    + batPeriod + \",\" \n    + tempPeriod + \",\" \n    + humPeriod + \",\" \n    + co2Period + \");\";\n\nreturn msg;",
+        "name": "function save param",
+        "func": "let health = global.get(\"health\");\nlet sample = global.get(\"sample\");\nlet batPeriod = global.get(\"batPeriod\");\nlet tempPeriod = global.get(\"tempPeriod\");\nlet humPeriod = global.get(\"humPeriod\");\nlet co2Period = global.get(\"co2Period\");\n\nlet dev = global.get(\"deviceSelected\");\n\nmsg.topic = \"UPDATE `Devices` SET \"\n    + \"`health_update_period` = \" + health + \", \"\n    + \"`sample_period` = \" + sample + \", \"\n    + \"`battery_alarm_period` = \" + batPeriod + \", \"\n    + \"`temperature_alarm_period` = \" + tempPeriod + \", \"\n    + \"`humidity_alarm_period` = \" + humPeriod + \", \"\n    + \"`co2_alarm_period` = \" + co2Period + \" \"\n    + \"WHERE `deviceeui` = '\" + dev + \"';\";\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1190,
+        "x": 1220,
         "y": 1760,
         "wires": [
             [
@@ -1907,7 +1620,7 @@
         "type": "debug",
         "z": "b9d029b2b355aff5",
         "name": "Inserted information",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1915,7 +1628,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1500,
+        "x": 1600,
         "y": 1760,
         "wires": []
     },
@@ -1923,15 +1636,15 @@
         "id": "09bbe68f1d781d4d",
         "type": "function",
         "z": "b9d029b2b355aff5",
-        "name": "function 29",
-        "func": "let header = 0b00011001;\nlet changemask = 0b00111111;\n\nlet health = global.get(\"health\");\nlet sample = global.get(\"sample\");\nlet batPeriod = global.get(\"batPeriod\");\nlet tempPeriod = global.get(\"tempPeriod\");\nlet humPeriod = global.get(\"humPeriod\");\nlet co2Period = global.get(\"co2Period\");\n\n// Helper to split uint16 into high and low bytes\nfunction toUint16Bytes(value) {\n    return [(value >> 8) & 0xFF, value & 0xFF];\n}\n\nlet bytes = [\n    header,\n    changemask,\n    ...toUint16Bytes(health),\n    ...toUint16Bytes(sample),\n    ...toUint16Bytes(batPeriod),\n    ...toUint16Bytes(tempPeriod),\n    ...toUint16Bytes(humPeriod),\n    ...toUint16Bytes(co2Period)\n];\n\nmsg.payload = {\n    downlinks: [{\n        f_port: 1,\n        frm_payload: Buffer.from(bytes).toString(\"base64\")\n    }]\n};\n\nreturn msg;",
+        "name": "function send param",
+        "func": "let header = 0b00011001;\nlet changemask = 0b00111111;\n\nlet health = global.get(\"health\");\nlet sample = global.get(\"sample\");\nlet batPeriod = global.get(\"batPeriod\");\nlet tempPeriod = global.get(\"tempPeriod\");\nlet humPeriod = global.get(\"humPeriod\");\nlet co2Period = global.get(\"co2Period\");\n\n// Helper to split uint16 into high and low bytes\nfunction toUint16Bytes(value) {\n    return [(value >> 8) & 0xFF, value & 0xFF];\n}\n\nlet bytes = [\n    header,\n    changemask,\n    ...toUint16Bytes(sample),\n    ...toUint16Bytes(health),\n    ...toUint16Bytes(batPeriod),\n    ...toUint16Bytes(tempPeriod),\n    ...toUint16Bytes(humPeriod),\n    ...toUint16Bytes(co2Period)\n];\n\nmsg.payload = {\n    downlinks: [{\n        f_port: 1,\n        frm_payload: Buffer.from(bytes).toString(\"base64\")\n    }]\n};\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1190,
+        "x": 1220,
         "y": 1720,
         "wires": [
             [
@@ -1945,7 +1658,7 @@
         "type": "mqtt out",
         "z": "b9d029b2b355aff5",
         "name": "",
-        "topic": "v3/iot-class-han-hasstt/devices/forest-sensor/down/push",
+        "topic": "v3/iot-class-han-hasstt@ttn/devices/forest-sensor/down/push",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -1954,7 +1667,7 @@
         "correl": "",
         "expiry": "",
         "broker": "732c62bec9786f14",
-        "x": 1490,
+        "x": 1600,
         "y": 1720,
         "wires": []
     },
@@ -1972,9 +1685,121 @@
         "correl": "",
         "expiry": "",
         "broker": "84a6706d826fbfc2",
-        "x": 1530,
+        "x": 1630,
         "y": 1680,
         "wires": []
+    },
+    {
+        "id": "9b4e601ec6fcc3ad",
+        "type": "mqtt in",
+        "z": "b9d029b2b355aff5",
+        "name": "",
+        "topic": "v3/thingsuno4huls6@ttn/devices/eui-0004a30b001ea0eb/join",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "84a6706d826fbfc2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 520,
+        "y": 1700,
+        "wires": [
+            [
+                "0b2934fe23bfd6e8"
+            ]
+        ]
+    },
+    {
+        "id": "f348b83b9b14e24e",
+        "type": "mqtt in",
+        "z": "b9d029b2b355aff5",
+        "name": "",
+        "topic": "v3/iot-class-han-hasstt@ttn/devices/forest-sensor/join",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "732c62bec9786f14",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 540,
+        "y": 1740,
+        "wires": [
+            [
+                "0b2934fe23bfd6e8"
+            ]
+        ]
+    },
+    {
+        "id": "55d067bc355b9cd2",
+        "type": "comment",
+        "z": "b9d029b2b355aff5",
+        "name": "Send last parameter values by startup",
+        "info": "",
+        "x": 450,
+        "y": 1660,
+        "wires": []
+    },
+    {
+        "id": "e009269ce9876764",
+        "type": "ui-dropdown",
+        "z": "b9d029b2b355aff5",
+        "group": "46942c2f9624ef30",
+        "name": "",
+        "label": "Select Option:",
+        "tooltip": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "multiple": false,
+        "chips": false,
+        "clearable": false,
+        "options": [
+            {
+                "label": "VSFFA",
+                "value": "0004A30B00203D94",
+                "type": "str"
+            },
+            {
+                "label": "Device Thijs",
+                "value": "0004A30B001EA0EB",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "typeIsComboBox": true,
+        "msgTrigger": "onChange",
+        "x": 1260,
+        "y": 500,
+        "wires": [
+            [
+                "8142d475b9c6737c",
+                "adfd11ae583d522d"
+            ]
+        ]
+    },
+    {
+        "id": "8142d475b9c6737c",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function save  bat",
+        "func": "global.set(\"deviceSelected\", msg.payload);",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1450,
+        "y": 500,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "732c62bec9786f14",
@@ -2039,12 +1864,12 @@
         "sessionExpiry": ""
     },
     {
-        "id": "7a0a10afad16721c",
+        "id": "53c770d1470352e2",
         "type": "MySQLdatabase",
-        "name": "",
+        "name": "public",
         "host": "Pi5Thijs",
         "port": "3306",
-        "db": "iot",
+        "db": "public",
         "tz": "",
         "charset": "UTF8"
     },
@@ -2166,7 +1991,7 @@
         }
     },
     {
-        "id": "8fa41465edb75886",
+        "id": "47bb0237a0cd15ed",
         "type": "global-config",
         "env": [],
         "modules": {
