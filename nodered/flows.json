@@ -60,11 +60,12 @@
         "y": 540,
         "wires": [
             [
-                "5f3a5f3bb7808b3f",
                 "5ffbf072dd7cfc7c",
                 "2348f37410e3462e",
                 "c98c5b8e232aec2e",
-                "94052b09974302cb"
+                "94052b09974302cb",
+                "2e1a41a7129912f4",
+                "0490126b1c9fa5c1"
             ]
         ]
     },
@@ -313,7 +314,7 @@
         "z": "b9d029b2b355aff5",
         "name": "Battery",
         "group": "46942c2f9624ef30",
-        "order": 4,
+        "order": 5,
         "value": "payload[0].battery_voltage",
         "valueType": "msg",
         "width": 3,
@@ -367,7 +368,7 @@
         "z": "b9d029b2b355aff5",
         "name": "Temperature",
         "group": "46942c2f9624ef30",
-        "order": 2,
+        "order": 3,
         "value": "payload[0].temperature_c",
         "valueType": "msg",
         "width": 3,
@@ -421,7 +422,7 @@
         "z": "b9d029b2b355aff5",
         "name": "Humidity",
         "group": "46942c2f9624ef30",
-        "order": 1,
+        "order": 2,
         "value": "payload[0].humidity_percent",
         "valueType": "msg",
         "width": 3,
@@ -475,7 +476,7 @@
         "z": "b9d029b2b355aff5",
         "name": "CO2",
         "group": "46942c2f9624ef30",
-        "order": 3,
+        "order": 4,
         "value": "payload[0].co2_ppm",
         "valueType": "msg",
         "width": 3,
@@ -617,7 +618,7 @@
         "type": "ui-text",
         "z": "b9d029b2b355aff5",
         "group": "46942c2f9624ef30",
-        "order": 5,
+        "order": 6,
         "width": 0,
         "height": 0,
         "name": "Timestamp",
@@ -630,36 +631,11 @@
         "color": "#717171",
         "wrapText": false,
         "className": "",
-        "value": "payload[0].time_received",
+        "value": "payload",
         "valueType": "msg",
         "x": 1930,
         "y": 420,
         "wires": []
-    },
-    {
-        "id": "38ba902910a32c52",
-        "type": "inject",
-        "z": "b9d029b2b355aff5",
-        "name": "Startup",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "str",
-        "x": 1060,
-        "y": 600,
-        "wires": [
-            [
-                "adfd11ae583d522d"
-            ]
-        ]
     },
     {
         "id": "5e6b229924130a58",
@@ -1620,7 +1596,7 @@
         "type": "debug",
         "z": "b9d029b2b355aff5",
         "name": "Inserted information",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1749,7 +1725,7 @@
         "name": "",
         "label": "Select Option:",
         "tooltip": "",
-        "order": 0,
+        "order": 1,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -1787,7 +1763,7 @@
         "id": "8142d475b9c6737c",
         "type": "function",
         "z": "b9d029b2b355aff5",
-        "name": "function save  bat",
+        "name": "function save id",
         "func": "global.set(\"deviceSelected\", msg.payload);",
         "outputs": 1,
         "timeout": 0,
@@ -1795,10 +1771,90 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1450,
+        "x": 1440,
         "y": 500,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "c021be24ad46e672",
+        "type": "inject",
+        "z": "b9d029b2b355aff5",
+        "name": "Startup",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0004A30B00203D94",
+        "payloadType": "str",
+        "x": 1080,
+        "y": 500,
+        "wires": [
+            [
+                "e009269ce9876764",
+                "4e1d40e8b0be59db"
+            ]
+        ]
+    },
+    {
+        "id": "2e1a41a7129912f4",
+        "type": "debug",
+        "z": "b9d029b2b355aff5",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1920,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "4e1d40e8b0be59db",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function save start id",
+        "func": "global.set(\"deviceSelected\", \"0004A30B00203D94\");",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1280,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0490126b1c9fa5c1",
+        "type": "function",
+        "z": "b9d029b2b355aff5",
+        "name": "function 1",
+        "func": "let utcDate = new Date(msg.payload[0].time_received);\n\n// Convert to local time string\nmsg.payload = utcDate.toLocaleString(\"nl-NL\", {\n    timeZone: \"Europe/Amsterdam\",\n    hour12: false\n});\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1780,
+        "y": 420,
+        "wires": [
+            [
+                "5f3a5f3bb7808b3f"
+            ]
         ]
     },
     {
@@ -1991,7 +2047,7 @@
         }
     },
     {
-        "id": "47bb0237a0cd15ed",
+        "id": "89dac0cc918543d0",
         "type": "global-config",
         "env": [],
         "modules": {
